@@ -1,7 +1,6 @@
 from pathlib import Path
 
 from flask import Flask
-from jinja2 import ChoiceLoader, FileSystemLoader
 
 from mims.config import config
 from mims.ui.catalog import views
@@ -30,17 +29,9 @@ def create_app():
             ODPScope.CATALOG_READ,
         ],
         SECRET_KEY=config.MIMS.CATALOG.FLASK_SECRET,
-        SESSION_COOKIE_SAMESITE='Lax',
-        SESSION_COOKIE_SECURE=True,
     )
 
-    app.jinja_loader = ChoiceLoader([
-        FileSystemLoader(Path(__file__).parent / 'templates'),
-        FileSystemLoader(base.TEMPLATE_DIR),
-    ])
-    app.static_folder = base.STATIC_DIR
-
-    base.init_app(app, user_api=True, client_api=True)
+    base.init_app(app, user_api=True, client_api=True, template_dir=Path(__file__).parent / 'templates')
     views.init_app(app)
 
     return app
