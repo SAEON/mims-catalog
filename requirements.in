@@ -1,0 +1,2 @@
+-e file:../odp-build/odp-server/odp-core
+gunicorn
