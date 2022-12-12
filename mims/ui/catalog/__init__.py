@@ -23,9 +23,9 @@ def create_app():
             ODPScope.CATALOG_READ,
             ODPScope.TOKEN_READ,
         ],
-        SI_CLIENT_ID=config.MIMS.CATALOG.SI_CLIENT_ID,
-        SI_CLIENT_SECRET=config.MIMS.CATALOG.SI_CLIENT_SECRET,
-        SI_CLIENT_SCOPE=[
+        CI_CLIENT_ID=config.MIMS.CATALOG.CI_CLIENT_ID,
+        CI_CLIENT_SECRET=config.MIMS.CATALOG.CI_CLIENT_SECRET,
+        CI_CLIENT_SCOPE=[
             ODPScope.CATALOG_READ,
         ],
         SECRET_KEY=config.MIMS.CATALOG.FLASK_SECRET,
