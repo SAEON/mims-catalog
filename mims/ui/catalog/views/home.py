@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 
-from mims.ui.catalog.forms import SearchForm
+from odp.ui.base.forms import SearchForm
 
 bp = Blueprint('home', __name__)
 

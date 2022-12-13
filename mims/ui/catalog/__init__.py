@@ -4,7 +4,7 @@ from flask import Flask
 
 from mims.config import config
 from mims.ui.catalog import views
-from odp.const import ODPScope
+from odp.const import ODPCatalog, ODPScope
 from odp.const.hydra import HydraScope
 from odp.ui import base
 
@@ -15,6 +15,7 @@ def create_app():
     """
     app = Flask(__name__)
     app.config.update(
+        CATALOG_ID=ODPCatalog.MIMS,
         UI_CLIENT_ID=config.MIMS.CATALOG.UI_CLIENT_ID,
         UI_CLIENT_SECRET=config.MIMS.CATALOG.UI_CLIENT_SECRET,
         UI_CLIENT_SCOPE=[
