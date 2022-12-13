@@ -1,8 +1,8 @@
 from odp.config.base import BaseConfig
-from odp.config.mixins import ODPUIClientMixin
+from odp.config.mixins import AppConfigMixin
 
 
-class MIMSCatalogConfig(BaseConfig, ODPUIClientMixin):
+class MIMSCatalogConfig(BaseConfig, AppConfigMixin):
     class Config:
         env_prefix = 'MIMS_CATALOG_'
 
