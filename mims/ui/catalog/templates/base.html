@@ -1,13 +1,14 @@
 {% extends 'layout.html' %}
-{% from 'lib.j2' import bootswatch_superhero_css %}
+{% from 'lib.j2' import bootswatch_superhero_css, jquery_js, leaflet_js, leaflet_css %}
 {% from 'nav.j2' import nav_logo, nav_title, nav_menu %}
+{% from 'foot.j2' import footer %}
 
 {% block web_title %}
     Marine Information Management System
 {% endblock %}
 
 {% block header %}
-    <nav class="navbar navbar-expand-lg bg-primary p-2">
+    <nav class="navbar navbar-expand-lg bg-primary p-3">
         <div class="container-fluid">
             <div class="navbar-nav justify-content-start" style="flex-basis:0; flex-grow:1">
                 {{ nav_logo(file='dffe-logo.png', url='https://www.dffe.gov.za/') }}
@@ -16,13 +17,24 @@
                 {{ nav_title(title='Marine Information Management System', user=current_user) }}
             </div>
             <div class="navbar-nav justify-content-end" style="flex-basis:0; flex-grow:1">
-                {{ nav_menu(user=current_user) }}
+                {{ nav_menu(user=current_user, wiki=False) }}
             </div>
         </div>
     </nav>
 {% endblock %}
 
+{% block footer %}
+    {{ footer(color='secondary', hr=False, pad=3) }}
+{% endblock %}
+
 {% block styles %}
     {{ super() }}
     {{ bootswatch_superhero_css() }}
+    {{ leaflet_css() }}
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    {{ jquery_js() }}
+    {{ leaflet_js() }}
 {% endblock %}
