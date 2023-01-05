@@ -18,7 +18,7 @@ charset-normalizer==2.1.1
     # via requests
 click==8.1.3
     # via flask
-cryptography==38.0.4
+cryptography==39.0.0
     # via authlib
 flask==2.2.2
     # via
@@ -41,7 +41,7 @@ markupsafe==2.1.1
     #   wtforms
 pycparser==2.21
     # via cffi
-pydantic[dotenv]==1.10.2
+pydantic[dotenv]==1.10.4
     # via odp
 python-dotenv==0.21.0
     # via pydantic
