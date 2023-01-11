@@ -1,0 +1,24 @@
+services:
+  mims-catalog:
+    container_name: mims-catalog
+    build:
+      context: .
+      args:
+        - CA_CERT_URL
+    ports:
+      - "4023:4023"
+    environment:
+      - ODP_ENV
+      - FLASK_ENV=${ODP_ENV}
+      - MIMS_CATALOG_FLASK_SECRET
+      - MIMS_CATALOG_CI_CLIENT_ID
+      - MIMS_CATALOG_CI_CLIENT_SECRET
+      - MIMS_CATALOG_UI_CLIENT_ID
+      - MIMS_CATALOG_UI_CLIENT_SECRET
+      - ODP_API_URL
+      - HYDRA_PUBLIC_URL
+      - REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+      - GUNICORN_CMD_ARGS=--forwarded-allow-ips=*
+      - TZ
+      - PYTHONUNBUFFERED=1
+    restart: always
