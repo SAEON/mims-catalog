@@ -10,13 +10,23 @@
     <nav class="navbar navbar-expand-lg bg-primary p-3">
         <div class="container-fluid">
             <div class="navbar-nav justify-content-start flex-grow-evenly">
-                {{ nav_logo(file='dffe-logo.png', url='https://www.dffe.gov.za/') }}
+                {{ nav_logo(
+                    image='dffe-logo.png',
+                    url='https://www.dffe.gov.za/'
+                ) }}
             </div>
             <div class="d-flex flex-column align-items-center navbar-nav justify-content-center">
-                {{ nav_title(title='Marine Information Management System', user=current_user) }}
+                {{ nav_title(
+                    current_user,
+                    request.blueprint,
+                    title='Marine Information Management System'
+                ) }}
             </div>
             <div class="navbar-nav justify-content-end flex-grow-evenly">
-                {{ nav_menu(user=current_user, wiki=False) }}
+                {{ nav_menu(
+                    current_user,
+                    wiki=False
+                ) }}
             </div>
         </div>
     </nav>
@@ -36,4 +46,5 @@
     {{ super() }}
     {{ jquery_js() }}
     {{ leaflet_js() }}
+    <script src="{{ url_for('static', filename='scripts/maps.js') }}"></script>
 {% endblock %}
