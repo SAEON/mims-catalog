@@ -1,5 +1,5 @@
 {% extends 'layout.html' %}
-{% from 'lib.j2' import bootswatch_superhero_css, jquery_js, leaflet_js, leaflet_css %}
+{% from 'lib.j2' import bootswatch_spacelab_css, jquery_js, leaflet_js, leaflet_css %}
 {% from 'page.j2' import nav_logo, nav_title, nav_menu, footer %}
 
 {% block web_title %}
@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block header %}
-    <nav class="navbar navbar-expand-lg bg-primary p-3">
+    <nav class="navbar navbar-expand-lg bg-primary navbar-dark p-3">
         <div class="container-fluid">
             <div class="navbar-nav justify-content-start flex-grow-evenly">
                 {{ nav_logo(
@@ -29,12 +29,12 @@
 {% endblock %}
 
 {% block footer %}
-    {{ footer(color='secondary', hr=False, pad=3) }}
+    {{ footer(color='light', hr=False) }}
 {% endblock %}
 
 {% block styles %}
     {{ super() }}
-    {{ bootswatch_superhero_css() }}
+    {{ bootswatch_spacelab_css() }}
     {{ leaflet_css() }}
 {% endblock %}
 
