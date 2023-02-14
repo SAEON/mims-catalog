@@ -3,13 +3,11 @@ A search interface to the public catalogue of the Marine Information Management 
 
 The MIMS is funded by the Department of Forestry, Fisheries and the Environment.
 
-## Deployment
+## Deployment (back-end)
 
 ### Prerequisites
-* Python 3.10
-* Docker with Compose plugin
-* Nginx
 * Git
+* Docker with Compose plugin
 
 ### New installation
 Initialize the git repository:
@@ -31,11 +29,30 @@ For example, in a Python console:
 'amDo7G_bhlyg4HhecG7neK231Wcb7pq7QvjPzDjwqyw'
 ```
 
-#### Web server setup
+### Upgrading an existing installation
+Update the repository:
+```shell
+git pull --recurse-submodules
+git submodule update --recursive
+```
+Check and update settings in the `.env` config file, as necessary.
+
+### Build and run the MIMS catalogue
+```shell
+docker compose build
+docker compose up -d
+```
+
+## Deployment (front-end)
+
+### Prerequisites
+* Nginx
+
+### Web server setup
 Nginx configuration example:
 ```nginx
 upstream mims_catalog {
-    server 127.0.0.1:4023;
+    server 127.0.0.1:4023;  # replace with back-end IP address
     keepalive 2;
 }
 server {
@@ -51,18 +68,4 @@ server {
         proxy_set_header X-Forwarded-Prefix /mims;
     }
 }
-```
-
-### Upgrading an existing installation
-Update the repository:
-```shell
-git pull --recurse-submodules
-git submodule update --recursive
-```
-Check and update settings in the `.env` config file, as necessary.
-
-### Build and run the MIMS catalog
-```shell
-docker compose build
-docker compose up -d
 ```
