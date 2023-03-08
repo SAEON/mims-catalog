@@ -1,3 +1,11 @@
+networks:
+  mims-net:
+    name: mims-net
+
+volumes:
+  mims-redis-data:
+    name: mims-redis-data
+
 services:
   mims-catalog:
     container_name: mims-catalog
@@ -5,8 +13,12 @@ services:
       context: .
       args:
         - CA_CERT_URL
+    networks:
+      - mims-net
     ports:
       - "4023:4023"
+    #extra_hosts:  # dev platform
+    #  - "odp2.saeon.dvn:192.168.115.71"
     environment:
       - ODP_ENV
       - FLASK_ENV=${ODP_ENV}
@@ -19,6 +31,16 @@ services:
       - HYDRA_PUBLIC_URL
       - REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
       - GUNICORN_CMD_ARGS=--forwarded-allow-ips=*
+      - REDIS_HOST=redis
       - TZ
       - PYTHONUNBUFFERED=1
+    restart: always
+
+  redis:
+    container_name: mims-redis
+    image: redis:6
+    networks:
+      - mims-net
+    volumes:
+      - mims-redis-data:/data
     restart: always
