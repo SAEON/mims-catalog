@@ -1,67 +1,18 @@
 {% extends 'base.html' %}
 {% from 'catalog.j2' import search_box %}
-{% from 'home.j2' import quick_search %}
 
 {% block main %}
-    <main class="d-flex flex-grow-1">
-        <div class="container-lg d-flex flex-column flex-grow-1">
-            <div class="row flex-grow-1" style="height:40vh">
-                <div class="col-md-2"></div>
-                <div class="col align-self-center">
+    <main class="d-flex flex-grow-1 align-items-center justify-content-evenly">
+        <div class="container-sm">
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col">
                     {{ search_box(
                         search_form,
                         placeholder='Search the MIMS catalogue'
                     ) }}
                 </div>
-                <div class="col-md-2"></div>
-            </div>
-            <div class="row px-5 gx-5">
-                <div class="col">
-                    {{ quick_search(
-                        title='Physical',
-                        text='Data measuring physical seawater properties and the physical '
-                             'processes within the ocean such as waves, currents, eddies, '
-                             'gyres and tides, and the interactions of the atmosphere and '
-                             'the ocean.',
-                        image_url=url_for('home.static', filename='images/science-vessel.jpg'),
-                        link_url=url_for('catalog.index', q='physical'),
-                        link_text='Explore this data'
-                    ) }}
-                </div>
-                <div class="col">
-                    {{ quick_search(
-                        title='Chemical',
-                        text='Data examining the chemical composition of seawater, its '
-                             'processes and cycles, and the chemical interactions of the '
-                             'ocean with the atmosphere and seafloor.',
-                        image_url=url_for('home.static', filename='images/two-test-tubes-954585-1024x682.jpg'),
-                        link_url=url_for('catalog.index', q='chemical'),
-                        link_text='Explore this data'
-                    ) }}
-                </div>
-                <div class="col">
-                    {{ quick_search(
-                        title='Biological',
-                        text='Data recording the distribution, abundance, and production '
-                             'of marine species and how these species develop and interact '
-                             'with their environment.',
-                        image_url=url_for('home.static', filename='images/biology.jpg'),
-                        link_url=url_for('catalog.index', q='biological'),
-                        link_text='Explore this data'
-                    ) }}
-                </div>
-                <div class="col">
-                    {{ quick_search(
-                        title='Weather',
-                        text='Meteorological observations such as wind, temperature, '
-                             'humidity, pressure and rainfall. These parameters are '
-                             'measured by weather stations along the coast or mounted '
-                             'on research vessels.',
-                        image_url=url_for('home.static', filename='images/weather-1024x683.jpg'),
-                        link_url=url_for('catalog.index', q='weather'),
-                        link_text='Explore this data'
-                    ) }}
-                </div>
+                <div class="col-lg-3"></div>
             </div>
         </div>
     </main>
