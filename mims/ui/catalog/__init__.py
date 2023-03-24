@@ -22,6 +22,16 @@ def create_app():
             'Instrument',
             'License',
         ],
+        CATALOG_TERMS_OF_USE='''
+            These data are made available with the express understanding that any such use
+            will properly acknowledge the originator(s) and publisher and cite the accession
+            numbers and/or associated Digital Object Identifiers. Anyone wishing to use these
+            data should properly cite and attribute the data providers listed as authors in
+            the metadata provided with each dataset. It is expected that all the conditions
+            of the data license will be strictly honoured. Use of any material herein should
+            be properly cited using the dataset’s persistent identifiers such as accession
+            numbers and DOIs.
+        ''',
         UI_CLIENT_ID=config.MIMS.CATALOG.UI_CLIENT_ID,
         UI_CLIENT_SECRET=config.MIMS.CATALOG.UI_CLIENT_SECRET,
         UI_CLIENT_SCOPE=[
