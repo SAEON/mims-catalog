@@ -3,7 +3,8 @@ A search interface to the public catalogue of the Marine Information Management 
 
 The MIMS is funded by the Department of Forestry, Fisheries and the Environment.
 
-## Deployment (back-end)
+## Deployment: application server
+N.B. The application server MUST NOT be web-facing.
 
 ### Prerequisites
 * Git
@@ -43,7 +44,8 @@ docker compose build
 docker compose up -d
 ```
 
-## Deployment (front-end)
+## Deployment: proxy server
+This is a web-facing server.
 
 ### Prerequisites
 * Nginx
@@ -52,7 +54,7 @@ docker compose up -d
 Nginx configuration example:
 ```nginx
 upstream mims_catalog {
-    server 127.0.0.1:4023;  # replace with back-end IP address
+    server APP_SERVER_IP:4023;  # replace with app server IP address
     keepalive 2;
 }
 server {
@@ -69,3 +71,28 @@ server {
     }
 }
 ```
+
+## Authorization: ODP server config
+The MIMS catalogue requires two client configurations on the ODP server,
+in order to access the ODP API.
+
+### Anonymous API access
+    Client id:            MIMS.Catalog.CI
+    Client name:          MIMS Catalogue Client Interface
+    Client secret:        <value for MIMS_CATALOG_CI_CLIENT_SECRET in .env>
+    Collection-specific:  true
+    Collections:          MIMS, SADCO
+    Scope:                odp.catalog:read, odp.catalog:search
+    Grant types:          client_credentials
+
+### User-authenticated API access
+    Client id:                  MIMS.Catalog.UI
+    Client name:                MIMS Catalogue User Interface
+    Client secret:              <value for MIMS_CATALOG_UI_CLIENT_SECRET in .env>
+    Collection-specific:        true
+    Collections:                MIMS, SADCO
+    Scope:                      odp.token:read, offline_access, openid
+    Grant types:                authorization_code, refresh_token
+    Response types:             code
+    Redirect URIs:              https://SERVER_NAME/mims/oauth2/logged_in
+    Post-logout redirect URIs:  https://SERVER_NAME/mims/oauth2/logged_out
