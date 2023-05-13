@@ -28,6 +28,7 @@ services:
       - MIMS_CATALOG_UI_CLIENT_ID
       - MIMS_CATALOG_UI_CLIENT_SECRET
       - ODP_API_URL
+      - ODP_ADMIN_URL
       - HYDRA_PUBLIC_URL
       - REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
       - GUNICORN_CMD_ARGS=--forwarded-allow-ips=*
