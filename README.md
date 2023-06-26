@@ -82,7 +82,7 @@ in order to access the ODP API.
     Client secret:        <value for MIMS_CATALOG_CI_CLIENT_SECRET in .env>
     Collection-specific:  true
     Collections:          MIMS, SADCO
-    Scope:                odp.catalog:read, odp.catalog:search
+    Scope:                odp.catalog:read, odp.catalog:search, odp.vocabulary:read
     Grant types:          client_credentials
 
 ### User-authenticated API access
