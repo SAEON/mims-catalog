@@ -7,30 +7,64 @@
 {% endblock %}
 
 {% block header %}
-    <nav class="navbar navbar-expand-lg bg-primary navbar-dark p-3">
+    <nav class="navbar navbar-expand-lg bg-white shadow-sm px-2 py-3 sticky-top">
         <div class="container-fluid">
-            <div class="navbar-nav justify-content-start flex-grow-evenly">
-                {{ nav_logo(
-                    image='dffe-logo.png',
-                    url='https://www.dffe.gov.za/'
-                ) }}
+            <img src="{{ url_for('static', filename='images/mims-logo.png') }}" height="70">
+            <div class="d-flex flex-column mims-logo-color fs-5 mx-4 mt-2">
+                <span class="fw-semibold">Marine Information Management System</span>
+                <span class="">South Africa's oceans and coastal data archive</span>
             </div>
-            <div class="d-flex flex-column align-items-center navbar-nav justify-content-center">
-                {{ nav_title(current_user, request.blueprint,
-                    title='Marine Information Management System',
-                    title_view='catalog',
-                    catalog='MIMS Catalogue'
-                ) }}
-            </div>
-            <div class="navbar-nav justify-content-end flex-grow-evenly">
-                {{ nav_menu(current_user, wiki=False) }}
+            <div class="navbar-nav justify-content-end flex-grow-1 mt-2">
+                <div class="badge rounded-pill fs-6 fw-light mx-2">
+                    <a href="https://data.ocean.gov.za/" class="text-decoration-none mims-logo-color">
+                        Home
+                    </a>
+                </div>
+                <div class="badge rounded-pill fs-6 fw-light mims-bg-color-mid mx-2">
+                    <a href="{{ url_for('catalog.index') }}" class="text-decoration-none text-reset">
+                        Datasets
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 {% endblock %}
 
 {% block footer %}
-    {{ footer(color='light', hr=False) }}
+    <footer class="text-white">
+        <div class="mims-bg-color-light" style="height: 170px">
+            <div class="d-flex justify-content-evenly align-items-center">
+                <div class="pt-3">
+                    <p class="p-5 text-center" style="max-width: 550px">
+                        MIMS is a component of the National
+                        <a href="https://www.ocims.gov.za/" target="_blank" class="text-decoration-none mims-logo-color">
+                            Oceans and Coasts Information Management System
+                        </a>
+                        (OCIMS) and manages the
+                        <a href="http://sadco.ocean.gov.za/" target="_blank" class="text-decoration-none mims-logo-color">
+                            Southern African Data Centre for Oceanography
+                        </a>
+                        (SADCO).
+                    </p>
+                </div>
+                <div class="pe-5">
+                    <a href="https://www.ocims.gov.za/" target="_blank" class="p-5">
+                        <img src="{{ url_for('static', filename='images/ocims-logo.png') }}">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="mims-bg-color-mid" style="height: 60px">
+            <div class="d-flex justify-content-center align-items-center">
+                <p class="pt-4">
+                    Copyright &copy; <script>document.write(new Date().getFullYear())</script>
+                    <a href="https://www.dffe.gov.za/" target="_blank" class="text-decoration-none text-white">
+                        Department of Forestry, Fisheries and the Environment
+                    </a>
+                </p>
+            </div>
+        </div>
+    </footer>
 {% endblock %}
 
 {% block styles %}
