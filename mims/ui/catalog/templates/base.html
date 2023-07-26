@@ -16,13 +16,13 @@
             </div>
             <div class="navbar-nav justify-content-end flex-grow-1 mt-2">
                 <div class="badge rounded-pill fs-6 fw-light mx-2">
-                    <a href="https://data.ocean.gov.za/" class="text-decoration-none mims-logo-color">
+                    <a href="https://data.ocean.gov.za/" class="text-decoration-none">
                         Home
                     </a>
                 </div>
                 <div class="badge rounded-pill fs-6 fw-light mims-bg-color-mid mx-2">
                     <a href="{{ url_for('catalog.index') }}" class="text-decoration-none text-reset">
-                        Datasets
+                        Catalogue
                     </a>
                 </div>
             </div>
@@ -37,11 +37,11 @@
                 <div class="pt-3">
                     <p class="p-5 text-center" style="max-width: 550px">
                         MIMS is a component of the National
-                        <a href="https://www.ocims.gov.za/" target="_blank" class="text-decoration-none mims-logo-color">
+                        <a href="https://www.ocims.gov.za/" target="_blank" class="text-decoration-none">
                             Oceans and Coasts Information Management System
                         </a>
                         (OCIMS) and manages the
-                        <a href="http://sadco.ocean.gov.za/" target="_blank" class="text-decoration-none mims-logo-color">
+                        <a href="http://sadco.ocean.gov.za/" target="_blank" class="text-decoration-none">
                             Southern African Data Centre for Oceanography
                         </a>
                         (SADCO).
@@ -71,6 +71,11 @@
     {{ super() }}
     {{ bootswatch_spacelab_css() }}
     {{ leaflet_css() }}
+    <style>
+        :root {
+            --bs-link-color: #3E8A93;
+        }
+    </style>
 {% endblock %}
 
 {% block scripts %}
