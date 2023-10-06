@@ -6,6 +6,7 @@ RUN if [ -n "${CA_CERT_URL}" ]; then update-ca-certificates; fi
 
 WORKDIR /srv/mims-catalog
 COPY odp-core odp-core/
+COPY odp-ui odp-ui/
 COPY requirements.txt ./
 RUN pip install -r requirements.txt
 COPY mims mims/
