@@ -4,9 +4,9 @@
 #
 #    pip-compile
 #
--e file:odp-core
+-e file:../odp-core
     # via -r requirements.in
--e file:odp-ui
+-e file:../odp-ui
     # via -r requirements.in
 async-timeout==4.0.3
     # via redis
@@ -16,7 +16,7 @@ authlib==1.2.1
     #   odp-ui
 blinker==1.7.0
     # via flask
-certifi==2023.7.22
+certifi==2023.11.17
     # via requests
 cffi==1.16.0
     # via cryptography
@@ -34,7 +34,7 @@ flask-login==0.6.3
     # via odp-ui
 gunicorn==21.2.0
     # via -r requirements.in
-idna==3.4
+idna==3.6
     # via requests
 itsdangerous==2.1.2
     # via flask
