@@ -3,12 +3,12 @@
 {% from 'page.j2' import nav_logo, nav_title, nav_menu, footer %}
 
 {% block web_title %}
-    Marine Information Management System
+    MIMS Catalogue
 {% endblock %}
 
 {% block favicon %}
-    <link rel="icon" href="{{ url_for('static', filename='images/mims-icon-32x32.png') }}" sizes="32x32" />
-    <link rel="icon" href="{{ url_for('static', filename='images/mims-icon-192x192.png') }}" sizes="192x192" />
+    <link rel="icon" href="{{ url_for('static', filename='images/mims-icon-32x32.png') }}" sizes="32x32"/>
+    <link rel="icon" href="{{ url_for('static', filename='images/mims-icon-192x192.png') }}" sizes="192x192"/>
 {% endblock %}
 
 {% block header %}
@@ -28,6 +28,11 @@
                 <div class="badge rounded-pill fs-6 fw-light mims-bg-color-mid mx-2">
                     <a href="{{ url_for('catalog.index') }}" class="text-decoration-none text-reset">
                         Catalogue
+                    </a>
+                </div>
+                <div class="badge rounded-pill fs-6 fw-light mx-2">
+                    <a href="/mims/archive/" class="text-decoration-none">
+                        Archive
                     </a>
                 </div>
             </div>
@@ -62,7 +67,8 @@
         <div class="mims-bg-color-mid" style="height: 60px">
             <div class="d-flex justify-content-center align-items-center">
                 <p class="pt-4">
-                    Copyright &copy; <script>document.write(new Date().getFullYear())</script>
+                    Copyright &copy;
+                    <script>document.write(new Date().getFullYear())</script>
                     <a href="https://www.dffe.gov.za/" target="_blank" class="text-decoration-none text-white">
                         Department of Forestry, Fisheries and the Environment
                     </a>

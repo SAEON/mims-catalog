@@ -2,8 +2,8 @@ from pathlib import Path
 
 from flask import Flask
 
-from mims.config import config
 from mims.ui.catalog import views
+from mims.ui.catalog.config import config
 from odp.const import ODPCatalog, ODPScope
 from odp.const.hydra import HydraScope
 from odp.ui import base
@@ -50,7 +50,12 @@ def create_app():
         SECRET_KEY=config.MIMS.CATALOG.FLASK_SECRET,
     )
 
-    base.init_app(app, user_api=True, client_api=True, template_dir=Path(__file__).parent / 'templates')
+    base.init_app(
+        app,
+        user_api=True,
+        client_api=True,
+        template_dir=Path(__file__).parent / 'templates',
+    )
     views.init_app(app)
 
     return app
