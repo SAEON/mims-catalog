@@ -3,12 +3,12 @@
 {% from 'page.j2' import nav_logo, nav_title, nav_menu, footer %}
 
 {% block web_title %}
-    Marine Information Management System
+    MIMS Catalogue
 {% endblock %}
 
 {% block favicon %}
-    <link rel="icon" href="{{ url_for('static', filename='images/mims-icon-32x32.png') }}" sizes="32x32" />
-    <link rel="icon" href="{{ url_for('static', filename='images/mims-icon-192x192.png') }}" sizes="192x192" />
+    <link rel="icon" href="{{ url_for('static', filename='images/mims-icon-32x32.png') }}" sizes="32x32"/>
+    <link rel="icon" href="{{ url_for('static', filename='images/mims-icon-192x192.png') }}" sizes="192x192"/>
 {% endblock %}
 
 {% block header %}
@@ -37,36 +37,40 @@
 
 {% block footer %}
     <footer class="text-white">
-        <div class="mims-bg-color-light" style="height: 170px">
-            <div class="d-flex justify-content-evenly align-items-center">
-                <div class="pt-3">
-                    <p class="p-5 text-center" style="max-width: 550px">
-                        MIMS is a component of the National
-                        <a href="https://www.ocims.gov.za/" target="_blank" class="text-decoration-none">
+        <div class="mims-bg-color-light" style="height: 124px">
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="ps-2 pt-4 flex-grow-evenly">
+                    <p class="text-center" style="max-width: 550px">
+                        MIMS is a component of the National<br>
+                        <a href="https://www.ocims.environment.gov.za/" target="_blank" class="text-decoration-none">
                             Oceans and Coasts Information Management System
-                        </a>
-                        (OCIMS) and manages the
-                        <a href="http://sadco.ocean.gov.za/" target="_blank" class="text-decoration-none">
-                            Southern African Data Centre for Oceanography
-                        </a>
-                        (SADCO).
+                        </a><br>
+                        (OCIMS).
                     </p>
                 </div>
-                <div class="pe-5">
-                    <a href="https://www.ocims.gov.za/" target="_blank" class="p-5">
-                        <img src="{{ url_for('static', filename='images/ocims-logo.png') }}">
+                <div class="pt-3">
+                    <a href="https://www.ocims.environment.gov.za/" target="_blank">
+                        <img src="{{ url_for('static', filename='images/ocims-logo.png') }}" style="height: 100px">
                     </a>
                 </div>
-            </div>
-        </div>
-        <div class="mims-bg-color-mid" style="height: 60px">
-            <div class="d-flex justify-content-center align-items-center">
-                <p class="pt-4">
-                    Copyright &copy; <script>document.write(new Date().getFullYear())</script>
-                    <a href="https://www.dffe.gov.za/" target="_blank" class="text-decoration-none text-white">
-                        Department of Forestry, Fisheries and the Environment
-                    </a>
-                </p>
+                <div class="pe-3 pt-4 flex-grow-evenly">
+                    <p class="text-end">
+                        Copyright &copy;
+                        <script>document.write(new Date().getFullYear())</script>
+                        <a href="https://www.dffe.gov.za/" target="_blank" class="text-decoration-none text-white">
+                            Department of Forestry, Fisheries and the Environment
+                        </a>
+                        <br>Photo by
+                        <a class="text-decoration-none" target="_blank"
+                           href="https://unsplash.com/@redcharlie?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
+                            redcharlie
+                        </a> on
+                        <a class="text-decoration-none" target="_blank"
+                           href="https://unsplash.com/photos/ocean-waves-crashing-on-shore-during-daytime-ncJKXaCp-3A?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
+                            Unsplash
+                        </a>
+                    </p>
+                </div>
             </div>
         </div>
     </footer>
@@ -76,9 +80,11 @@
     {{ super() }}
     {{ bootswatch_spacelab_css() }}
     {{ leaflet_css() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/mims.css') }}">
     <style>
         :root {
             --bs-link-color: #3E8A93;
+            --home-background-url: url( {{ url_for('static', filename='images/redcharlie-ncJKXaCp-3A-unsplash.jpg') }} );
         }
     </style>
 {% endblock %}
