@@ -1,5 +1,5 @@
 {% extends 'layout.html' %}
-{% from 'lib.j2' import bootswatch_spacelab_css, jquery_js, leaflet_js, leaflet_css %}
+{% from 'lib.j2' import bootswatch_spacelab_css, jquery_js, leaflet_js, leaflet_css, js_zip %}
 {% from 'page.j2' import nav_logo, nav_title, nav_menu, footer %}
 
 {% block web_title %}
@@ -93,6 +93,8 @@
     {{ super() }}
     {{ jquery_js() }}
     {{ leaflet_js() }}
+    {{ js_zip }}
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
     <script src="{{ url_for('static', filename='scripts/catalog.js') }}"></script>
     <script src="{{ url_for('static', filename='scripts/controls.js') }}"></script>
     <script src="{{ url_for('static', filename='scripts/leaflet-providers.js') }}"></script>
