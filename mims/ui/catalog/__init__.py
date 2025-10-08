@@ -21,6 +21,7 @@ def create_app():
             'Location',
             'Instrument',
             'License',
+            'Keyword'
         ],
         CATALOG_TERMS_OF_USE='''
             These data are made available with the express understanding that any such use
