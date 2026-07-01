@@ -21,6 +21,10 @@ def create_app():
             'Location',
             'Instrument',
             'License',
+            'EOV',
+            'EBV',
+            'SDG',
+            'Keyword',  # Hidden from sidebar but used for generic keyword filtering
         ],
         CATALOG_TERMS_OF_USE='''
             These data are made available with the express understanding that any such use
